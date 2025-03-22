@@ -20,7 +20,7 @@ This is a comprehensive and responsive e-commerce system implemented in C++ usin
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/SwayamGupta12345/e-commerce-system-in-cpp.git
+   git clone https://github.com/rishugoyal805/E-Commerce-Platform.git
    cd e-commerce-system-in-cpp
    ```
 
