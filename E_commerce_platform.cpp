@@ -4,7 +4,6 @@
 #include <vector>
 #include <unistd.h>
 #include <windows.h>
-
 using namespace std;
 
 const int MAX_USERS = 100;
@@ -83,7 +82,7 @@ public:
     }
 };
 
-class Cart:public Product{
+class Cart: public Product{
 public:
     class CartItem {
     public:
@@ -99,18 +98,22 @@ public:
     vector<CartItem> items;
 
     // Function to add a product to the cart
-    void addToCart(const Product* product, int quantity) {
+    void addToCart(const Product* product, int qty) {
         auto iter = find_if(items.begin(), items.end(), [product](const CartItem& item) {
             return item.getProduct()->s_no == product->s_no;
         });
 
         if (iter != items.end()) {
-            iter->quantity += quantity;
+            iter->quantity += qty;
+          
+
         } else {
             // Product is not in the cart, add it
-            items.emplace_back(product, quantity);
+            items.emplace_back(product, qty);
+           
         }
         cout << "Product added to cart successfully!" << endl;
+ 
     }
 
     // Function to remove a product from the cart
@@ -434,7 +437,7 @@ public:
             if (usernames[i] == username && passwords[i] == password) {
                 cout << "Authentication successful." << endl;
 
-                if (username == "Programmer"||username == "Rishu"||username == "Swayam"||username == "Shreya") {
+                if (username == "Programmer") {
                     cout<<"\nyou are a programmer\n";
                     isProgrammerLoggedIn = true;
                     isCustomerLoggedIn = false;
@@ -470,8 +473,8 @@ public:
     }
 };
 
-string Authenticate::usernames[MAX_USERS] = {"Programmer", "Rishu", "Swayam", "Shreya"};
-string Authenticate::passwords[MAX_USERS] = {"ProgrammerPwd", "246", "256", "245"};
+string Authenticate::usernames[MAX_USERS] = {"Programmer"};
+string Authenticate::passwords[MAX_USERS] = {"123"};
 bool Authenticate::isProgrammerLoggedIn = false;
 bool Authenticate::isCustomerLoggedIn = false;
 string Authenticate::loggedInUser = "";
@@ -615,7 +618,7 @@ void modifyQuantity() {
             int pass;
             cin >> pass;
 
-            if (pass == 256 || pass == 246 || pass == 245) {
+            if (pass == 123) {
                 product.p_quantity += quantity;
                 cout << "Quantity has been increased. Order placed successfully.\n\n" << endl;
             } else {
@@ -655,7 +658,7 @@ void removeProduct() {
                 int pass;
                 cin >> pass;
 
-                if (pass == 256 || pass == 246 || pass == 245) {
+                if (pass == 123 ) {
                     Product::products.erase(it);
                     cout << "Product with ID '" << productId << "' has been successfully deleted.\n" << endl;
                 } else {
@@ -794,7 +797,7 @@ void remove_customer(){
     cin.ignore();
     cout << "Enter Programmer Password: ";
     cin >> pass;
-    if (pass == 256 || pass == 246 || pass == 245) {
+    if (pass == 123) {
         Customer::deleteCustomer(username, pass1);
     } else {
         cout << "Wrong Programmer Password!" << endl;
@@ -834,6 +837,7 @@ void c_displayProducts() {
             cin >> d;
             if ((d == 'y' || d == 'Y') && ((*it).cod == "Yes")) {
                 cout << "Cash On Delivery initiated.\nYour Order Product Name: " << (*it).name << "\nPrice: " << (*it).price << " has been successfully Placed.\n" << endl;
+                ((*it).p_quantity)--;
             }
             else if ((d == 'y' || d == 'Y') && ((*it).cod == "No")) {
                 cout << "Sorry, Cash On Delivery option is not available for this product." << endl;
@@ -841,7 +845,10 @@ void c_displayProducts() {
                 char other_option;
                 cin >> other_option;
                 if (other_option == 'y' || other_option == 'Y') {
-                    payment((*it).price);
+                   if( payment((*it).price)){
+                    ((*it).p_quantity)--;
+                   }
+
                 }
             }
             else {
@@ -1062,10 +1069,8 @@ void displayHeader() {
     cout << "*                    WELCOME TO OUR                        *" << endl;
     cout << "*                     ONLINE STORE!                        *" << endl;
     cout << "*                                                          *" << endl;
-    cout << "* Submitted to:                             Programmed by: *" << endl;
-    cout << "* Archana Purwar                                     Rishu *" << endl;
-    cout << "* Sangeeta Mittal                             Swayam Gupta *" << endl;
-    cout << "*                                          Shreya Varshney *" << endl;
+    cout << "*                                           Programmed by: *" << endl;
+    cout << "*                                               Programmer *" << endl;    
     cout << "*                                                          *" << endl;
     cout << "************************************************************" <<"\n"<<endl;
 }
