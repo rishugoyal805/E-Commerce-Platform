@@ -21,7 +21,7 @@ This is a comprehensive and responsive e-commerce system implemented in C++ usin
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/rishugoyal805/E-Commerce-Platform.git
-   cd e-commerce-system-in-cpp
+   cd E-Commerce-Platform
    ```
 
 2. **Compile the Program**
@@ -70,4 +70,4 @@ This is a comprehensive and responsive e-commerce system implemented in C++ usin
 
 ## Contact
 
-For any queries or issues, please contact [swayamsam2005@gmail.com].
+For any queries or issues, please contact [rishugoyal16800@gmail.com].
