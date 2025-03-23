@@ -3,7 +3,7 @@
 This is a comprehensive and responsive e-commerce system implemented in C++ using vectors and other standard libraries. The system was developed as a second-year semester project, focusing on essential features for managing an online store.
 
 ## Features
-
+ 
 - **User Authentication**: Secure login with a default username and password.
 - **Product Management**: Add, remove, and manage products in the store.
 - **Cart System**: Users can add products to a cart and manage their purchases.
